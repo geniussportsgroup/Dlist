@@ -201,3 +201,11 @@ func TestDlist_RotateRight(t *testing.T) {
 	})
 	fmt.Println()
 }
+
+func TestDlist_ToSlice(t *testing.T) {
+
+	s := New(1, 2, 3, 4, 5).ToSlice()
+	for i := 1; i <= 5; i++ {
+		assert.Equal(t, i, s[i-1])
+	}
+}
