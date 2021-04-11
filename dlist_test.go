@@ -163,7 +163,7 @@ func TestDlist_RemoveFirst(t *testing.T) {
 
 	l := New(1, 2, 3, 4, 5)
 	for i := 1; !l.IsEmpty(); i++ {
-		assert.Equal(t, i, l.RemoveFirst().(*Dlist).item.(int))
+		assert.Equal(t, i, l.RemoveFirst().(*Dlist).Item.(int))
 	}
 }
 
@@ -171,7 +171,7 @@ func TestDlist_RemoveLast(t *testing.T) {
 
 	l := New(1, 2, 3, 4, 5)
 	for i := 5; !l.IsEmpty(); i-- {
-		assert.Equal(t, i, l.RemoveLast().(*Dlist).item.(int))
+		assert.Equal(t, i, l.RemoveLast().(*Dlist).Item.(int))
 	}
 }
 
@@ -179,8 +179,8 @@ func TestDlist_Reverse(t *testing.T) {
 
 	l := New(1, 2, 3, 4, 5)
 	assert.True(t, Fct.All(Fct.Zip(l.Reverse(), l.ReverseInPlace()), func(p interface{}) bool {
-		fmt.Printf("%d == %d\n", p.(Fct.Pair).Item1.(*Dlist).item, p.(Fct.Pair).Item2.(*Dlist).item)
-		return p.(Fct.Pair).Item1.(*Dlist).item == p.(Fct.Pair).Item2.(*Dlist).item
+		fmt.Printf("%d == %d\n", p.(Fct.Pair).Item1.(*Dlist).Item, p.(Fct.Pair).Item2.(*Dlist).Item)
+		return p.(Fct.Pair).Item1.(*Dlist).Item == p.(Fct.Pair).Item2.(*Dlist).Item
 	}))
 }
 

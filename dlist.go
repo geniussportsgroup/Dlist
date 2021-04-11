@@ -1,7 +1,7 @@
 package Dlist
 
 type Dlist struct {
-	item interface{}
+	Item interface{}
 	prev *Dlist
 	next *Dlist
 }
@@ -47,7 +47,7 @@ func (l *Dlist) Reset() *Dlist {
 }
 
 func NewDnode(item interface{}) *Dlist {
-	p := &Dlist{item: item}
+	p := &Dlist{Item: item}
 	return p.Reset()
 }
 
@@ -68,7 +68,7 @@ func (l *Dlist) First() interface{} {
 	if l == nil {
 		return nil
 	}
-	return l.next.item
+	return l.next.Item
 }
 
 // Last Return the last element of the list
@@ -76,7 +76,7 @@ func (l *Dlist) Last() interface{} {
 	if l == nil {
 		return nil
 	}
-	return l.prev.item
+	return l.prev.Item
 }
 
 func (l *Dlist) __append(node *Dlist) *Dlist {
@@ -214,7 +214,7 @@ func (it *Iterator) GetCurr() interface{} {
 	if it.curr == nil {
 		return nil
 	}
-	return it.curr.item
+	return it.curr.Item
 }
 
 // Next Advance the iterator to the next element of the list
@@ -282,7 +282,7 @@ func (l *Dlist) RotateLeftInPlace(n int) *Dlist {
 	}
 
 	for i := 0; i < n; i++ {
-		l.Append(l.RemoveFirst().(*Dlist).item)
+		l.Append(l.RemoveFirst().(*Dlist).Item)
 	}
 
 	return l
@@ -301,7 +301,7 @@ func (l *Dlist) RotateRightInPlace(n int) *Dlist {
 	}
 
 	for i := 0; i < n; i++ {
-		l.Insert(l.RemoveLast().(*Dlist).item)
+		l.Insert(l.RemoveLast().(*Dlist).Item)
 	}
 
 	return l
