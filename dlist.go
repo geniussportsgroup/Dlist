@@ -136,7 +136,7 @@ func New(items ...interface{}) *Dlist {
 	return head
 }
 
-func (l *Dlist) clone() *Dlist {
+func (l *Dlist) Clone() *Dlist {
 	ret := NewDnode(nil)
 	for it := NewIterator(l); it.HasCurr(); it.Next() {
 		ret.Append(it.GetCurr())
@@ -271,7 +271,7 @@ func (l *Dlist) ReverseInPlace() *Dlist {
 
 // Reverse Return a reversed copy of seq
 func (l *Dlist) Reverse() *Dlist {
-	return l.clone().ReverseInPlace()
+	return l.Clone().ReverseInPlace()
 }
 
 // RotateLeftInPlace Rotate in place n positions to left
@@ -290,7 +290,7 @@ func (l *Dlist) RotateLeftInPlace(n int) *Dlist {
 
 // RotateLeft Return a copy of seq rotated n positions to left
 func (l *Dlist) RotateLeft(n int) *Dlist {
-	return l.clone().RotateLeftInPlace(n)
+	return l.Clone().RotateLeftInPlace(n)
 }
 
 // RotateRightInPlace Rotate in place n positions to right
@@ -309,5 +309,5 @@ func (l *Dlist) RotateRightInPlace(n int) *Dlist {
 
 // RotateRight Return a copy of seq rotated n positions to right
 func (l *Dlist) RotateRight(n int) *Dlist {
-	return l.clone().RotateRightInPlace(n)
+	return l.Clone().RotateRightInPlace(n)
 }

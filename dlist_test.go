@@ -132,7 +132,7 @@ func TestDlist_Append(t *testing.T) {
 
 	l1 := New()
 	l1.Append(1, 2, 3, 4, 5)
-	l2 := l1.clone()
+	l2 := l1.Clone()
 	assert.True(t, Fct.All(Fct.Zip(l1, l2), func(p interface{}) bool {
 		return p.(Fct.Pair).Item1 == p.(Fct.Pair).Item2
 	}))
