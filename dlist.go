@@ -226,6 +226,13 @@ func (it *Iterator) Next() interface{} {
 	return it
 }
 
+// DelCurr delete delete current item and advance iterator to next in the sequence. Return the deleted item
+func (it *Iterator) DelCurr() interface{} {
+	ret := it.curr
+	it.curr = it.curr.next
+	return ret.Del()
+}
+
 func (l *Dlist) Size() int {
 	n := 0
 	for it := NewIterator(l); it.HasCurr(); it.Next() {
