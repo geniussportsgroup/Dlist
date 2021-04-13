@@ -136,6 +136,10 @@ func New(items ...interface{}) *Dlist {
 	return head
 }
 
+func (l *Dlist) Create(items ...interface{}) interface{} {
+	return New(items...)
+}
+
 func (l *Dlist) Clone() *Dlist {
 	ret := NewDnode(nil)
 	for it := NewIterator(l); it.HasCurr(); it.Next() {
